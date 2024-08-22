@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Honk&family=Tauri&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+}
+
+.container {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+body {
+  background: rgb(255, 255, 255);
+}
+
+li {
+  list-style: none;
+}
+
+.icon {
+  font-size: 20px;
+  color: white;
+}
+
+.opacity {
+  opacity: 0.1;
+}
+
+.opacity:hover {
+  opacity: 0.1;
+}
+
+.block {
+  display: block;
+}
+
+.font-name {
+  font-family: "Lexend", sans-serif;
+  color: #0f1419;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.font-username {
+  font-family: "Noto Sans", sans-serif;
+  color: RGB(83, 100, 113);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.pt {
+  padding-top: 40px;
+}
+
+.mt-1 {
+  padding-top: 10px;
+}
+
+.pb {
+  padding-bottom: 40px;
+}
+
+.mb {
+  margin-bottom: 20px;
+}
+
+.font-username:hover {
+  text-decoration: underline;
+}
+
+.top-mt {
+  margin-top: -15px;
+}
+
+.mm-container {
+  max-width: 100%;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.user_bio {
+  margin-top: 15px;
+  font-size: 14px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 600;
+  color: #434445;
+}
+
+.username-profile:hover {
+  text-decoration: none;
+}
+
+.select {
+  user-select: none;
+}
+
+.font {
+  font-family: "Lexend", sans-serif;
+}
+
+.start {
+  align-items: flex-start;
+}
+
+.price-color {
+  color: #2c96ff;
+}
+
+.left-br2 {
+  display: block;
+  padding-left: 10px;
+}
+
+.a_233 {
+  margin-left: 10px;
+}
+
+.select-none {
+  user-select: none;
+}
+
+.font-name2 {
+  font-family: "Lexend", sans-serif;
+  color: #0f1419;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.font-username2 {
+  font-family: "Noto Sans", sans-serif;
+  color: RGB(83, 100, 113);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.follow_btn {
+  background: none;
+  color: white;
+  width: 100px;
+  padding-bottom: 2px;
+  height: 35px;
+  font-weight: 800;
+  border-radius: 20px;
+  cursor: pointer;
+  color: black;
+  border: 1px solid #1d9bf0;
+  transition: 0.2s;
+}
+
+.follow_btn:hover {
+  background: #1d9bf0;
+  color: white;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.gap-5 {
+  gap: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.body_controller {
+  min-width: 640px;
+  border-left: 1px solid rgba(239, 243, 244, 1);
+  border-right: 1px solid rgba(239, 243, 244, 1);
+}
+
+.repository_data {
+  display: flex;
+}
+
+.page-title {
+  font-size: 30px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-family: "Lexend", sans-serif;
+  border-bottom: 1px solid rgba(239, 243, 244, 1);
+}
+
+::placeholder {
+  user-select: none;
+}
+
+.hover-none:hover {
+  background-color: white !important;
+}
+
+.intrst_count {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+}
+
+.post_cm_btn {
+  border: none;
+  background: #1d9bf0;
+  color: white;
+  height: 35px;
+  border-radius: 50px;
+  width: 100px;
+  float: right;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+}

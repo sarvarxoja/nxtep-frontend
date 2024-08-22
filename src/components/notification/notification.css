@@ -1,0 +1,37 @@
+.notification_controller {
+  align-items: start;
+  display: flex;
+  padding: 10px 20px 20px 10px;
+  border-bottom: 1px solid rgba(239, 243, 244, 1);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.notification_controller:hover {
+  background: #f1eeee;
+}
+
+.content_notification {
+  font-size: 20px;
+  font-family: "Lexend", sans-serif;
+}
+
+.notification_date {
+  color: #333;
+  font-size: 15px;
+  font-family: "Lexend", sans-serif;
+}
+
+.notification_content {
+  font-size: 16px;
+  color: #494747;
+  font-weight: 500;
+}
+
+.not_fnd_ntf {
+  text-align: center;
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-top: 140px;
+  color: #313030;
+}

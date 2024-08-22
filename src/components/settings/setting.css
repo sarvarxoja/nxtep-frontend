@@ -1,0 +1,19 @@
+.settings-link {
+  display: block;
+  padding: 15px;
+  font-size: 20px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  font-family: "Lexend", sans-serif;
+  justify-content: space-between;
+  transition: 0.2s;
+}
+
+.settings-link:hover {
+  background: #b5b3b3;
+}
+
+.icon_right {
+  display: block;
+}

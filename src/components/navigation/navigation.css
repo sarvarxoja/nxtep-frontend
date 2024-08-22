@@ -1,0 +1,85 @@
+@import url("../../styles/controller.css");
+
+/* .main-header {
+  margin-right: 10px;
+} */
+
+/* .more_btn {
+  width: 90%;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 50px;
+  background: #1d9bf0;
+  border: none;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+} */
+
+.navbar_logo {
+  width: 50px;
+  user-select: none;
+}
+
+.navbar-list {
+  margin-bottom: 8px;
+}
+
+.header-navbar {
+  width: 265px;
+  position: sticky;
+  top: 5px;
+}
+
+.list-control {
+  margin-top: 30px;
+}
+
+.navbar-link {
+  color: #171616;
+  display: block;
+  font-size: 18px;
+  width: 250px;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 10px;
+  user-select: none;
+  padding: 20px 15px 14px 0px;
+  transition: 0.5s;
+  font-weight: 760;
+}
+
+/* .navbar-link:hover {
+  background: #f2f2f2;
+} */
+
+/* .profile-list {
+  margin-top: 200px;
+} */
+
+.navbar-icon {
+  color: black;
+  font-size: 25px;
+  padding-right: 10px;
+}
+
+.create_project {
+  background: #1da1f2;
+  text-align: center;
+  color: white;
+  height: 50px;
+  padding-top: 14px;
+  border-radius: 50px;
+  width: 220px;
+  font-size: 16px;
+  margin-top: 90px;
+}
+
+.icon_home {
+  width: 40px;
+  padding-right: 10px;
+  color: black;
+}
+
+.flex {
+  display: flex;
+}

@@ -1,0 +1,162 @@
+.post_input {
+  padding: 10px 10px 0px 10px;
+  width: 580px;
+  min-height: 60px;
+  max-height: 240px;
+  resize: none;
+  border: none;
+  font-size: 18px;
+}
+
+.post_input::placeholder {
+  font-size: 18px;
+}
+
+.post_input::-webkit-scrollbar {
+  background-color: #f7f9f9;
+  width: 14px;
+}
+
+.post_input::-webkit-scrollbar-thumb {
+  background-color: #b9cad3;
+}
+
+.user_data_controller {
+  display: flex;
+  gap: 10px;
+}
+
+.post_data_cwg1 {
+  margin-top: 20px;
+}
+
+.post_data_a1 {
+  padding: 20px 20px;
+  font-family: "Lexend", sans-serif;
+}
+
+.post_cmp_ctr {
+  padding-top: 10px;
+}
+
+.post_one_intr {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(239, 243, 244, 1);
+  padding-bottom: 20px;
+}
+
+.comment_count {
+  color: #5c6262;
+}
+
+.like_count {
+  color: #5c6262;
+}
+
+.popular {
+  cursor: pointer;
+}
+
+.popular_comments {
+  cursor: pointer;
+}
+
+.comment_add_ins {
+  padding: 0px 0px 0px 10px;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(239, 243, 244, 1);
+  padding-bottom: 20px;
+}
+
+.post_input {
+  padding: 10px 10px 0px 10px;
+  width: 580px;
+  min-height: 60px;
+  max-height: 240px;
+  resize: none;
+  border: none;
+  font-size: 18px;
+}
+
+.post_input::placeholder {
+  font-size: 18px;
+}
+
+.user_inf_controller {
+  display: flex;
+  align-items: center;
+}
+
+.s_check {
+  width: 40px;
+}
+
+.post-img2 {
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  user-select: none;
+  object-fit: cover;
+  width: auto;
+  max-width: 600px;
+}
+
+.comment_avatar {
+  font-size: 22px;
+  width: 50px;
+  height: 50px;
+}
+
+.comment_avatar_a {
+  padding-top: 10px;
+}
+
+.mt-4 {
+  width: 35px;
+}
+
+.post_input::-webkit-scrollbar {
+  background-color: #f7f9f9;
+  width: 14px;
+}
+
+.comment_username {
+  align-items: center;
+}
+
+.post_input::-webkit-scrollbar-thumb {
+  background-color: #b9cad3;
+}
+
+.post_cm_btn {
+  border: none;
+  background: #1d9bf0;
+  color: white;
+  height: 35px;
+  border-radius: 50px;
+  width: 100px;
+  float: right;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.comment_controller {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px 10px;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(239, 243, 244, 1);
+  padding-bottom: 20px;
+}
+
+.comment_content {
+  font-size: 14px;
+  font-family: "Lexend", sans-serif;
+}

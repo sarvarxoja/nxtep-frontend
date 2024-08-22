@@ -1,0 +1,15 @@
+.icon_left {
+    padding-top: 3px;
+    font-size: 25px;
+    font-weight: 500;
+    display: block;
+    color: black;
+}
+
+.title_add_project_page {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 10px;
+}

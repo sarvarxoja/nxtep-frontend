@@ -1,17 +1,20 @@
 import axios from "axios";
 import { useEffect, useState, useCallback } from "react";
+import { useSelector } from "react-redux";
 import TextareaAutosize from "react-textarea-autosize";
 
 export const PostArea = () => {
-  const [dataClass, setDataClass] = useState("");
+  const [dataClass, setDataClass] = useState("post_cm_btn opacity");
   const [disabled, setDisabled] = useState(true);
   const [mediaType, setMediaType] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [value, setValue] = useState({
     content: "",
   });
+
+  
   const [selectedMedia, setSelectedMedia] = useState(null);
-  const [myData, setMyData] = useState([]);
+  const { profile, loading, error } = useSelector((state) => state.profileData);
 
   function handleInputChange(e) {
     setValue((oldValues) => {
@@ -76,38 +79,20 @@ export const PostArea = () => {
     }
   }, [value.content]);
 
-  let profileMyUrl = `users/profile/me`;
-
-  useEffect(() => {
-    profileMe();
-  }, [profileMyUrl]);
-
-  async function profileMe() {
-    try {
-      const response = await axios.get(profileMyUrl);
-      setMyData(response.data.myData);
-    } catch (error) {
-      setMyData({
-        name: "U",
-        background_color: "#333"
-      })
-    }
-  }
-
   return (
     <div className="data-box top hover-none">
-      {myData.avatar ? (
+      {profile.avatar ? (
         <img
-          src={`http://localhost:1311/${myData.avatar}`}
+          src={`http://localhost:1311/${profile.avatar}`}
           alt=""
           className="user_avatar"
         />
       ) : (
         <div
           className="user-avatar"
-          style={{ background: `${myData.background_color}` }}
+          style={{ background: `${profile.background_color}` }}
         >
-          {myData.name?.substr(0, 1)}
+          {profile.name?.substr(0, 1)}
         </div>
       )}
       <div className="total-text">

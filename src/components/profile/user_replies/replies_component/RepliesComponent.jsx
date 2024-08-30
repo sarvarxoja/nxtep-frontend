@@ -1,12 +1,11 @@
 import _ from "lodash";
 import { Link } from "react-router-dom";
-import { getTimeAgo } from "../../utils/utils";
-import { VideoComponent } from "../video/Video";
-import { InterestsComponent } from "../interests/Interests";
 import { useState, useEffect } from "react";
+import { getTimeAgo } from "../../../../utils/utils";
+import { ReplyMediaController } from "../reply_media/ReplyMedia";
 
-export const PostData = ({
-  index,
+export const RepliesComponent = ({
+  id,
   media,
   username,
   avatar,
@@ -15,10 +14,6 @@ export const PostData = ({
   check_mark,
   created,
   content,
-  like_count,
-  fke_view_count,
-  comments_count,
-  id,
 }) => {
   const [extension, setExtension] = useState(null);
 
@@ -71,9 +66,10 @@ export const PostData = ({
               </div>
             </Link>
           </div>
+        <Link to={`/status/${id}`}>
           <p className="post_content">{content}</p>
           {extension === "mp4" ? (
-            <VideoComponent media={media} />
+            <ReplyMediaController media={media}/>
           ) : extension === "jpg" ||
             extension === "jpeg" ||
             extension === "png" ? (
@@ -85,15 +81,7 @@ export const PostData = ({
           ) : (
             ""
           )}
-          <InterestsComponent
-            like_count={like_count}
-            fke_view_count={fke_view_count}
-            comments_count={comments_count}
-            id={id}
-          />
-          <Link to={`/status/${id}`} className="show_post">
-            Show this thread
-          </Link>
+        </Link>
         </div>
       </div>
   );

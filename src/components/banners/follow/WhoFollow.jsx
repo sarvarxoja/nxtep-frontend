@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import _ from "lodash";
 import "../banner.css";
-import { TitleComponent } from "../../title/Title";
+import _ from "lodash";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { TrendsBanner } from "../trends/TrendsBanner";
 
 export const WhoFollowBanner = () => {
   const [data, setData] = useState([]);
@@ -21,10 +21,8 @@ export const WhoFollowBanner = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `/users/who/to/follow?limit=3&page=${page}`
+        `/users/who/to/follow?limit=3&page=1`
       );
-      console.log(response);
-
       const newPosts = response.data;
       setData((prevPosts) => [...prevPosts, ...newPosts]);
       if (newPosts.length === 0) {
@@ -85,8 +83,8 @@ export const WhoFollowBanner = () => {
   // }
 
   return (
-    <div>
-      <div className="left banner_box">
+    <div className="banner_box">
+      <div className="left">
         <div className="users_box">
           <h3 className="banner_title">Who to follow</h3>
           {data.map((i, index) => {
@@ -145,6 +143,7 @@ export const WhoFollowBanner = () => {
           <span className="show_more_span">Show more</span>
         </div>
       </div>
+      <TrendsBanner/>
     </div>
   );
 };

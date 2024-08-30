@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import "./create_project.css";
-import { MainTitle } from "../title/MainTitle";
+import { ProjectsNavigation } from "../navigation/projects/ProjectsNavigation";
 
-export const CreateProjectComponent = () => {
+export const ProjectsPage = () => {
   return (
     <div>
-      <MainTitle title={"Add your project to theNEXTEP"} paddingLeft={"50px"}/>
-      <div></div>
+     <ProjectsNavigation/>
     </div>
   );
 };

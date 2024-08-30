@@ -99,6 +99,11 @@ li {
   color: #434445;
 }
 
+.pr_ject_container {
+  max-width: 1300px;
+  margin: auto;
+}
+
 .username-profile:hover {
   text-decoration: none;
 }
@@ -181,6 +186,11 @@ li {
   min-width: 640px;
   border-left: 1px solid rgba(239, 243, 244, 1);
   border-right: 1px solid rgba(239, 243, 244, 1);
+}
+
+.border_bottom {
+  border-bottom: 1px solid rgba(239, 243, 244, 1);
+  padding-bottom: 25px;
 }
 
 .repository_data {

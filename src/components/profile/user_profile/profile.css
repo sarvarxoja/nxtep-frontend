@@ -1,0 +1,23 @@
+.user_data_cotroller {
+  flex-wrap: wrap;
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profile_inf {
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+.link {
+  font-weight: 400;
+  color: #0b8be1;
+  cursor: pointer;
+}
+
+.list-23.active .link-ad23 {
+  font-weight: 800;
+  color: black;
+}

@@ -17,6 +17,22 @@
   background: #bdbaba;
 }
 
+.pin_icon {
+  display: block;
+}
+
+.pinned {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #615e5e;
+  position: relative;
+  top: -16px;
+  font-weight: 700;
+  left: 150px;
+  font-family: "Lexend", sans-serif;
+}
+
 .exit_x_icon {
   font-size: 22px;
   position: absolute;

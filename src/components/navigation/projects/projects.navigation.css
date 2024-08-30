@@ -1,0 +1,15 @@
+.project_navigation {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project_functions {
+    display: flex;
+    align-items: center;
+}
+
+.projects_search {
+    width: 300px;
+}

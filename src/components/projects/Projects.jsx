@@ -1,9 +1,9 @@
 import _ from "lodash";
-import "./projects.css"
+import "./projects.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { TitleComponent } from "../title/Title";
+import { ProjectsController } from "./project_component/ProjectsController";
 
 export const ProjectsComponent = () => {
   const [data, setData] = useState([]);
@@ -55,17 +55,13 @@ export const ProjectsComponent = () => {
     <div className="body_controller">
       <TitleComponent title={"Projects"} />
       <div className="platforms_top">
-        {data.map((e, index) => (
-          <Link key={index} to={`/project/${e._id}`}>
-            <div>
-              <img
-                src={`http://localhost:1311/${e.project_logo}`}
-                alt=""
-                className="logo_ad"
-              />
-            </div>
-          </Link>
-        ))}
+      {data.map((e) => {
+        return (
+          <div key={e._id}>
+            <ProjectsController id={e._id} project_logo={e.project_logo} />
+          </div>
+        );
+      })}
       </div>
     </div>
   );

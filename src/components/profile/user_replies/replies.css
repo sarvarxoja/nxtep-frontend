@@ -1,0 +1,32 @@
+.replies_my_data {
+  display: flex;
+  padding: 20px;
+}
+
+.replies_data {
+  border: 0.001px solid #918b8b;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 520px;
+  margin-left: 100px;
+  margin-top: -40px;
+}
+
+.interests_style_controller {
+  margin: 20px 20px 20px 100px;
+}
+
+.video_reply {
+  border: none;
+}
+
+.video_reply video {
+  width: auto;
+  max-width: 400px;
+  height: 450px;
+  border-radius: 15px;
+}
+
+.reply-post-video {
+  width: 400px !important;
+}

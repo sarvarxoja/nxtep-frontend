@@ -1,8 +1,11 @@
 import "./navigation.css";
 import { Link } from "react-router-dom";
 import Logo from "../../images/free-twitter-logo-icon-2429-thumb.png";
+import { useSelector } from "react-redux";
 
 export const NavigationComponent = () => {
+  const { profile, loading, error } = useSelector((state) => state.profileData);
+
   return (
     <div className="main-header">
       <nav className="header-navbar container">
@@ -19,12 +22,19 @@ export const NavigationComponent = () => {
                   <path d="M21.591 7.146L12.52 1.157c-.316-.21-.724-.21-1.04 0l-9.071 5.99c-.26.173-.409.456-.409.757v13.183c0 .502.418.913.929.913h6.638c.511 0 .929-.41.929-.913v-7.075h3.008v7.075c0 .502.418.913.929.913h6.639c.51 0 .928-.41.928-.913V7.904c0-.301-.158-.584-.408-.758zM20 20l-4.5.01.011-7.097c0-.502-.418-.913-.928-.913H9.44c-.511 0-.929.41-.929.913L8.5 20H4V8.773l8.011-5.342L20 8.764z"></path>
                 </g>
               </svg>
+              <span className="main_navigaiton">
               Home
+              </span>
             </Link>
           </li>
           <li className="navbar-list">
             <Link to={"/projects"} className="navbar-link">
-              <i className="far fa-project-diagram navbar-icon"></i> Projects
+              <i className="far fa-project-diagram  project-icon"></i> Projects
+            </Link>
+          </li>
+          <li className="navbar-list">
+            <Link to={"/projects"} className="navbar-link">
+            <i className="far fa-envelope navbar-icon"></i> Messages
             </Link>
           </li>
           <li className="navbar-list">
@@ -45,36 +55,13 @@ export const NavigationComponent = () => {
             </Link>
           </li>
           <li className="navbar-list">
-            <Link className="navbar-link">
+            <Link className="navbar-link" to={`/${profile.username}`}>
               <i className="far fa-user navbar-icon"></i> Profile
             </Link>
           </li>
-          {/* <Link to={`/${myData.username}`} className="my_data">
-            <div>
-              {myData.avatar ? (
-                <div className="avatar-box">
-                  <img
-                    src={`http://localhost:1311/${myData.avatar}`}
-                    alt=""
-                    width={30}
-                    height={30}
-                    className="search_avatar"
-                  />
-                </div>
-              ) : (
-                <div
-                  className="user-avatar search_default"
-                  style={{ background: `${myData.background_color}` }}
-                >
-                  {myData.name?.substr(0, 1)}
-                </div>
-              )}
-            </div>
-            <div className="profile_font">Profile</div>
-          </Link> */}
           <li className="navbar-list">
             <Link to={"/create/project"} className="navbar-link create_project">
-              Create Project
+              Create ^
             </Link>
           </li>
         </ul>

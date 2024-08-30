@@ -5,36 +5,23 @@ import { useEffect, useState } from "react";
 import { getTimeAgo } from "../../../utils/utils";
 import { VideoComponent } from "../../video/Video";
 import { InterestsComponent } from "../../interests/Interests";
-import { PostData } from "../PostData";
+import { PostData } from "../post_data/PostData";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPosts } from "../post_actions/PostActions";
 
 export const YourPosts = () => {
-  const [data, setData] = useState([]);
-  const [bold, setBold] = useState(null);
-  const [active, setActive] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const { posts, loading, error } = useSelector((state) => state.postsData);
 
   useEffect(() => {
-    fotYouData();
-  }, []);
-
-  const fotYouData = async (page) => {
-    setLoading(true);
-    try {
-      const response = await axios.get(`/post/top/rtc?limit=5&&page=${page}`);
-      setData(response.data);
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-    }
-    setLoading(false);
-  };
-
-  console.log(data);
+    dispatch(fetchPosts());
+  }, [dispatch]);
 
   return (
     <div>
-      {data.map((e,index) => {
+      {posts.map((e) => {
         return (
-          <div key={index}>
+          <div key={e._id}>
             <PostData
               media={e.media}
               username={e.user_id.username}
@@ -48,6 +35,7 @@ export const YourPosts = () => {
               fke_view_count={e.fke_view_count}
               comments_count={e.comments_count}
               id={e._id}
+              like={e.like}
             />
           </div>
         );

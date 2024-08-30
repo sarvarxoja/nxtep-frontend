@@ -26,8 +26,6 @@ export const Comments = ({ post_id }) => {
     setCommentsLoading(false);
   };
 
-  console.log(commentsData);
-
   return (
     <div>
       {commentsData.map((e) => {

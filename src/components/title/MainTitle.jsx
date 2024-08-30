@@ -1,7 +1,7 @@
 import "./title.css";
 import { Link } from "react-router-dom";
 
-export const MainTitle = ({ title,paddingLeft }) => {
+export const MainTitle = ({ title, paddingLeft }) => {
   return (
     <div>
       <h2 className="page-title title_add_project_page" style={{paddingLeft: paddingLeft}}>

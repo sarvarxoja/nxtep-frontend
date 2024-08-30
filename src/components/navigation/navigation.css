@@ -38,12 +38,12 @@
 .navbar-link {
   color: #171616;
   display: block;
-  font-size: 18px;
+  font-size: 21px;
   width: 250px;
   font-family: "Open Sans", sans-serif;
   border-radius: 10px;
   user-select: none;
-  padding: 20px 15px 14px 0px;
+  padding: 10px 15px 14px 0px;
   transition: 0.5s;
   font-weight: 760;
 }
@@ -55,6 +55,12 @@
 /* .profile-list {
   margin-top: 200px;
 } */
+
+.project-icon {
+  color: black;
+  font-size: 23px;
+  padding-right: 5px;
+}
 
 .navbar-icon {
   color: black;
@@ -68,16 +74,19 @@
   color: white;
   height: 50px;
   padding-top: 14px;
-  border-radius: 50px;
+  border-radius: 0px;
   width: 220px;
   font-size: 16px;
-  margin-top: 90px;
+  margin-top: 60px;  
 }
 
 .icon_home {
-  width: 40px;
-  padding-right: 10px;
+  width: 30px;
   color: black;
+}
+
+.main_navigaiton {
+  margin-left: 9px;
 }
 
 .flex {

@@ -1,0 +1,30 @@
+.follow_ff_ctr {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .pd_ctr {
+    padding: 10px 0px 0px 10px;
+  }
+  
+  .a_user {
+      /* padding: 0px 20px 5px 100px; */
+    border-bottom: 1px solid rgba(239, 243, 244, 1);
+  }
+  
+  .user_inf_ctr {
+    margin-bottom: 10px;
+  }
+  
+  .flex_ctr {
+      align-items: center;
+      margin-right: 20px;
+      justify-content: space-between
+  }
+  
+  .following_loader {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }

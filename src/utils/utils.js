@@ -31,8 +31,23 @@ export function formatDate(dateString) {
 
   const timeString = `${hours}:${minutesStr} ${ampm}`;
 
-    const options = { month: "short", day: "numeric", year: "numeric" };
+  const options = { month: "short", day: "numeric", year: "numeric" };
   const dateStringFormatted = date.toLocaleDateString("en-US", options);
 
   return `${timeString} · ${dateStringFormatted}`;
+}
+
+export function getMonthAndYear(dateString) {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = date.toLocaleString("eng", { month: "long" });
+
+  return `Joined ${month} ${year}`;
+}
+
+export function truncateText(text, maxLength) {
+  if (text.length <= maxLength) {
+    return text;
+  }
+  return text.slice(0, maxLength) + "...";
 }

@@ -5,12 +5,16 @@
 }
 
 .banner_title {
-  border-bottom: 2px solid #f1f3f5;
+  border-bottom: 2px solid #d9dbdd;
   padding-top: 8px;
   font-size: 25px;
   padding-left: 20px;
   padding-bottom: 5px;
   font-family: "Noto Sans", sans-serif;
+}
+
+.trends_content {
+  color: black;
 }
 
 .trend_name {
@@ -23,9 +27,8 @@
 
 .show_more_span {
   margin-top: 14px;
-  border-top: 2px solid #f1f3f5;
+  border-top: 2px solid #d9dbdd;
   display: block;
-  cursor: pointer;
   font-size: 18px;
   color: #1da1f2;
   padding-top: 10px;
@@ -33,6 +36,7 @@
   padding-left: 20px;
   margin-bottom: 20px;
   font-family: "Noto Sans", sans-serif;
+  cursor: pointer;
 }
 
 .show_more_span:hover {
@@ -72,7 +76,8 @@
 }
 
 .trends_box {
-  max-height: 380px;
+  max-height: 310px;
+  margin-bottom: 20px;
 }
 
 .box-of-ceo {

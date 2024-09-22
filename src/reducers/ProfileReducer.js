@@ -4,7 +4,7 @@ const initialState = {
   error: null,
 };
 
-const profileReucer = (state = initialState, action) => {
+const profileReudcer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_PROFILE_REQUEST":
       return {
@@ -30,4 +30,4 @@ const profileReucer = (state = initialState, action) => {
   }
 };
 
-export default profileReucer;
+export default profileReudcer;

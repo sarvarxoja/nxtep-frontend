@@ -1,59 +1,109 @@
 import "./interests.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { FaRepeat } from "react-icons/fa6";
-import { FaRegComment } from "react-icons/fa";
-import ShareIcon from "@mui/icons-material/Share";
-// import { RiShareForwardFill } from "react-icons/ri";
+import { formatCount } from "../../utils/utils";
+import ChatIcon from "@mui/icons-material/Chat";
+import RepeatIcon from "@mui/icons-material/Repeat";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
+
+import fetchRepost from "./repost_action/RepostAction";
 import { likePost } from "../posts/post_actions/PostLikeAction";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-// import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
+import { InterestsNotification } from "./notification/InterestsNotification";
+import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
 
 export const InterestsComponent = ({
   like_count,
   fke_view_count,
   comments_count,
-  id,
+  replies_count,
   like,
+  is_reply,
+  id,
 }) => {
   const dispatch = useDispatch();
+  const componentRef = useRef(null);
+  const notificationRef = useRef(null);
+  const [content, setContent] = useState("s");
+  const [shareActive, setShareActive] = useState(false);
+
+  // Repost state from Redux
+  const { repost, loading, error } = useSelector((state) => state.repostData);
+
+  const handleRepost = (id) => {
+    dispatch(fetchRepost(id, content));
+  };
 
   const handleLike = (post_id) => {
     dispatch(likePost(post_id));
   };
 
+  const handleShareClick = () => {
+    setShareActive(!shareActive);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        notificationRef.current &&
+        !notificationRef.current.contains(event.target) &&
+        componentRef.current &&
+        !componentRef.current.contains(event.target)
+      ) {
+        setShareActive(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+  
+
   return (
-    <div className="popular_inf">
+    <div className="popular_inf" ref={componentRef}>
       <li
         className="popular_intrsts popular_like"
-        onClick={() => {
-          handleLike(id);
-        }}
+        onClick={() => handleLike(id)}
       >
-        <FavoriteBorderIcon
-        className="fas fa-eye icon-like icon-intrsts" 
-          // className="far fa-heart icon-like like"
-          // className={` ${like ? 'liked' : 'black'}`}
-          // style={{ color: like ? "red" : "black" }}
+        <ThumbUpOffAltRoundedIcon
+          className={`icon-like icon-intrsts ${like ? "liked" : "black"}`}
         />
-        <span className="intrst_count like_count">{like_count}</span>
+        <span
+          className={`intrst_count like_count icon-like icon-intrsts ${
+            like ? "liked" : "black"
+          }`}
+        >
+          {formatCount(like_count)}
+        </span>
       </li>
       <li className="popular_intrsts">
-        <EqualizerIcon className="fas fa-eye icon-like icon-intrsts" />
-        <span className="intrst_count">{fke_view_count}</span>
+        <EqualizerIcon className="icon-like icon-intrsts" />
+        <span className="intrst_count">{formatCount(fke_view_count)}</span>
       </li>
       <Link to={`/status/${id}`} className="popular_intrsts ">
-        <FaRegComment className="far fa-comment icon-like icon-intrsts" />
-        <span className="intrst_count">{comments_count}</span>
+        <ChatIcon className=" icon-like icon-intrsts" />
+        <span className="intrst_count">{formatCount(comments_count)}</span>
       </Link>
-      <li className="popular_intrsts">
-      <FaRepeat className="far fa-comment icon-like icon-intrsts"/>
-        {/* <i className="far fa-retweet icon-like icon-intrsts repost_icon"></i> */}
+      <li className="popular_intrsts" onClick={() => handleRepost(id)}>
+        <RepeatIcon
+          className={`icon-like icon-intrsts ${is_reply ? "replied" : "black"}`}
+        />
+        <span className={`intrst_count ${is_reply ? "replied" : "black"}`}>
+          {formatCount(replies_count || 0)}
+        </span>
       </li>
-      <li className="popular_intrsts" onClick={() => handleCopy(id)}>
-        <ShareIcon className="fas fa-eye icon-like icon-intrsts" />
+      <li className="popular_intrsts" onClick={handleShareClick}>
+        <SendOutlinedIcon className="icon-like icon-intrsts" />
       </li>
+      {shareActive && (
+        <div ref={notificationRef}>
+          <InterestsNotification id={id} setShareActive={setShareActive} />
+        </div>
+      )}
     </div>
   );
 };

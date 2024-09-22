@@ -24,6 +24,9 @@ export const UserReplies = ({ user_id }) => {
     }
   }
 
+  console.log(data);
+  
+
   return (
     <div>
       {data.length ? (
@@ -73,15 +76,15 @@ export const UserReplies = ({ user_id }) => {
             </div>
             <dir className="replies_data">
               <RepliesComponent
-                id={e.post_id._id}
-                media={e.post_id.media}
-                username={e.post_id.user_id.username}
-                avatar={e.post_id.user_id.avatar}
-                background_color={e.post_id.user_id.background_color}
-                name={e.post_id.user_id.name}
-                check_mark={e.post_id.user_id.check_mark}
+                id={e.post_id?._id}
+                media={e.post_id?.media}
+                username={e.post_id?.user_id.username}
+                avatar={e.post_id?.user_id.avatar}
+                background_color={e.post_id?.user_id.background_color}
+                name={e.post_id?.user_id.name || "S"}
+                check_mark={e.post_id?.user_id.check_mark}
                 created={e.created}
-                content={e.post_id.content}
+                content={e.post_id?.content}
                 like_count={e.like_count}
               />
             </dir>

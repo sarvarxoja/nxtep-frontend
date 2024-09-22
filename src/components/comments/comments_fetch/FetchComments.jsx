@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getTimeAgo } from "../../../utils/utils";
 import { CommentInterests } from "../../interests/CommentInterests";
+import { CommentInput } from "../comment_input/CommentInput";
 
 export const Comments = ({ post_id }) => {
   const [commentsData, setCommentsData] = useState([]);
@@ -18,7 +19,6 @@ export const Comments = ({ post_id }) => {
       const response = await axios.get(
         `/post/comment/${post_id}?limit=5&page=1`
       );
-      console.log(response);
       setCommentsData(response.data.comment);
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -26,11 +26,16 @@ export const Comments = ({ post_id }) => {
     setCommentsLoading(false);
   };
 
+  const addNewComment = (newComment) => {
+    setCommentsData([newComment, ...commentsData]);
+  };
+
   return (
     <div>
+      <CommentInput post_id={post_id} addNewComment={addNewComment} />
       {commentsData.map((e) => {
         return (
-          <div className="comment_controller">
+          <div className="comment_controller" key={e._id}>
             <Link to={`/${e?.user_id?.username}`}>
               {e?.user_id?.avatar ? (
                 <img
@@ -58,16 +63,20 @@ export const Comments = ({ post_id }) => {
                   <span className="font-username db pl-2">
                     {e?.user_id?.username}
                   </span>
-                  {e.user_id.check_mark ?  <img
-                    src={`http://localhost:1311/${e?.user_id?.check_mark}`}
-                    alt=""
-                    className="main_check_m mt-4"
-                  />  : ""}
+                  {e.user_id?.check_mark ? (
+                    <img
+                      src={`http://localhost:1311/${e?.user_id?.check_mark}`}
+                      alt=""
+                      className="main_check_m mt-4"
+                    />
+                  ) : (
+                    ""
+                  )}
                   <span className="posts_date">{getTimeAgo(e.created)}</span>
                 </div>
               </Link>
               <p className="comment_content">{e.comment}</p>
-            <CommentInterests like_count={1} answer_count={0}/>
+              <CommentInterests like_count={1} answer_count={0} />
             </div>
           </div>
         );

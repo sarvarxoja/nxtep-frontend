@@ -1,0 +1,16 @@
+.types_controller {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.content_type {
+  background: #efefef;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 10px;
+  font-family: "Lexend", sans-serif;
+  user-select: none;
+}

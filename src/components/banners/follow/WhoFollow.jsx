@@ -3,36 +3,20 @@ import _ from "lodash";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { TrendsBanner } from "../trends/TrendsBanner";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchFollowPeople } from "./FollowAction";
 
 export const WhoFollowBanner = () => {
-  const [data, setData] = useState([]);
-  const [page, setPage] = useState(1);
-  const [userData, setUserData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
+  const dispatch = useDispatch();
   const [myProfile, setMyProfile] = useState(null);
 
-  useEffect(() => {
-    fetchUsers(page);
-  }, [page]);
+  let { who_to_follow, loading, error } = useSelector(
+    (state) => state.who_to_followData
+  );
 
-  const fetchUsers = async (page) => {
-    setLoading(true);
-    try {
-      const response = await axios.get(
-        `/users/who/to/follow?limit=3&page=1`
-      );
-      const newPosts = response.data;
-      setData((prevPosts) => [...prevPosts, ...newPosts]);
-      if (newPosts.length === 0) {
-        setHasMore(false);
-      }
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-    }
-    setLoading(false);
-  };
+  useEffect(() => {
+    dispatch(fetchFollowPeople(3));
+  }, [dispatch]);
 
   // async function handleFollowInMany(to_user) {
   //   try {
@@ -83,11 +67,11 @@ export const WhoFollowBanner = () => {
   // }
 
   return (
-    <div className="banner_box">
+    <div>
       <div className="left">
         <div className="users_box">
           <h3 className="banner_title">Who to follow</h3>
-          {data.map((i, index) => {
+          {who_to_follow.map((i, index) => {
             return (
               <div
                 key={index}
@@ -140,10 +124,11 @@ export const WhoFollowBanner = () => {
               </div>
             );
           })}
-          <span className="show_more_span">Show more</span>
+          <Link className="show_more_span" to={"/people"}>
+            Show more
+          </Link>
         </div>
       </div>
-      <TrendsBanner/>
     </div>
   );
 };

@@ -1,18 +1,23 @@
 import axios from "axios";
-import { useEffect, useState, useCallback } from "react";
-import { useSelector } from "react-redux";
+import EmojiPicker from "emoji-picker-react";
+import { useDispatch, useSelector } from "react-redux";
 import TextareaAutosize from "react-textarea-autosize";
+import { useEffect, useState, useCallback } from "react";
+import { SiteNotification } from "../../site_notification/SiteNotification";
 
 export const PostArea = () => {
-  const [dataClass, setDataClass] = useState("post_cm_btn opacity");
-  const [disabled, setDisabled] = useState(true);
   const [mediaType, setMediaType] = useState("");
+  const [disabled, setDisabled] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const [showEmojis, setShowEmojis] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [dataClass, setDataClass] = useState("post_cm_btn opacity");
   const [value, setValue] = useState({
     content: "",
   });
 
-  
+  const dispatch = useDispatch();
+
   const [selectedMedia, setSelectedMedia] = useState(null);
   const { profile, loading, error } = useSelector((state) => state.profileData);
 
@@ -40,33 +45,71 @@ export const PostArea = () => {
     setSelectedFile(null);
   };
 
+  const handleEmojiToggle = () => {
+    setShowEmojis(!showEmojis);
+  };
+
+  const handleEmojiClick = (emojiObject) => {
+    const emoji = emojiObject.emoji;
+    setValue((oldValues) => ({
+      ...oldValues,
+      content: oldValues.content + emoji,
+    }));
+  };
+
+  const handleOutsideClick = (e) => {
+    if (
+      showEmojis &&
+      !e.target.closest(".emoji-picker") &&
+      !e.target.closest(".smile_icon")
+    ) {
+      setShowEmojis(false);
+    }
+  };
+
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
-      console.log("handleSubmit called");
 
       const formData = new FormData();
       formData.append("media", selectedFile);
       formData.append("content", value.content);
 
       try {
-        const response = await axios.post("/post/add", formData, {
+        if (value.content.length > 300) {
+          setIsVisible(true);
+          setTimeout(() => {
+            setIsVisible(false);
+          }, 2000);
+
+          return;
+        }
+
+        if (value.content.length < 1) {
+          return;
+        }
+
+        const { data } = await axios.post("/post/add", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
+
         setSelectedFile("");
         setSelectedMedia("");
         setValue({ content: "" });
-      } catch (error) {
-        console.log(error.message);
-      }
+
+        dispatch({
+          type: "ADD_NEW_POST",
+          payload: data.postData,
+        });
+      } catch (error) {}
     },
     [selectedFile, value.content]
   );
 
   useEffect(() => {
-    const trimmedInput = value.content.trim();
+    const trimmedInput = value.content?.trim() || "";
 
     if (trimmedInput.length > 5) {
       setDisabled(false);
@@ -78,6 +121,13 @@ export const PostArea = () => {
       setDataClass("post_cm_btn opacity");
     }
   }, [value.content]);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [showEmojis]);
 
   return (
     <div className="data-box top hover-none">
@@ -130,6 +180,10 @@ export const PostArea = () => {
             <label htmlFor="media">
               <i className="fas fa-image-polaroid file-icon" title="media"></i>
             </label>
+            <i
+              className="far fa-smile file-icon smile_icon"
+              onClick={() => handleEmojiToggle()}
+            ></i>
             <input
               type="file"
               className="file-input"
@@ -143,6 +197,15 @@ export const PostArea = () => {
           </div>
         </form>
       </div>
+      {showEmojis && (
+        <div className="emoji-picker">
+          <EmojiPicker onEmojiClick={handleEmojiClick} />
+        </div>
+      )}
+      <SiteNotification
+        notification={"Content length must be less than 300"}
+        isVisible={isVisible}
+      />
     </div>
   );
 };

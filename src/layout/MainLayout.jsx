@@ -1,13 +1,18 @@
+import "./layout.css";
+import { Outlet, Routes, Route } from "react-router-dom";
 import { NavigationComponent } from "../components/navigation/Navigation";
 import { WhoFollowBanner } from "../components/banners/follow/WhoFollow";
-import { Outlet } from "react-router-dom";
+import { TrendsBanner } from "../components/banners/trends/TrendsBanner";
 
 const MainLayout = () => {
   return (
     <div className="repository_data container">
       <NavigationComponent />
       <Outlet />
-      <WhoFollowBanner />
+      <div className="position_controller">
+          <WhoFollowBanner />
+          <TrendsBanner />
+      </div>
     </div>
   );
 };

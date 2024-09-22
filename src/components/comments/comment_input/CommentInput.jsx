@@ -1,9 +1,9 @@
-import "../comment.css"
+import "../comment.css";
 import axios from "axios";
 import { useState } from "react";
 import ReactTextareaAutosize from "react-textarea-autosize";
 
-export const CommentInput = ({post_id}) => {
+export const CommentInput = ({ post_id, addNewComment }) => {
   const [commentValue, setCommentValue] = useState({
     comment: "",
   });
@@ -17,19 +17,16 @@ export const CommentInput = ({post_id}) => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios({
+      let { data } = await axios({
         method: "post",
         url: `/post/comment/${post_id}`,
         data: {
           comment: commentValue.comment,
         },
         headers: { "Content-Type": "application/json" },
-      })
-        .then((e) => {
-          commentValue.comment = "";
-          setReload(true);
-        })
-        .catch((e) => console.log(e));
+      });
+      commentValue.comment = "";
+      addNewComment(data.commentData);
     } catch (error) {
       console.log(error.message);
     }
@@ -46,9 +43,7 @@ export const CommentInput = ({post_id}) => {
           value={commentValue.comment}
         />
         <div>
-          <button className="post_cm_btn" onClick={() => handleSubmit()}>
-            Post
-          </button>
+          <button className="post_cm_btn">Post</button>
         </div>
       </form>
     </div>

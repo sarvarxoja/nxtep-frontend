@@ -1,0 +1,39 @@
+.project_logo {
+  object-fit: cover;
+  width: 300px;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  user-select: none;
+}
+
+.projects_style_controller {
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.circle_icon {
+  font-size: 6px;
+  position: relative;
+  top: 1px;
+}
+
+.project_data_style {
+    display: flex;
+    margin-top: 5px;
+    align-items: center;
+    gap: 10px;
+}
+
+.project_name {
+  font-family: "Lexend", sans-serif;
+  color: black;
+}
+
+.project_interests_data {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #606060;
+  font-family: "Lexend", sans-serif;
+}

@@ -3,6 +3,7 @@ import "./notification.css";
 import { Link } from "react-router-dom";
 import { TitleComponent } from "../title/Title";
 import { useEffect, useState, useRef } from "react";
+import { NotificationItem } from "./NotificationItem";
 
 export const NotificationComponent = () => {
   const [data, setData] = useState([]);
@@ -10,9 +11,23 @@ export const NotificationComponent = () => {
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
+
+  async function fetchNotifications() {
+    try {
+      let { data } = await axios.get(`/notification/get`);
+      console.log(data.Notifications);
+      setData(data.Notifications)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="body_controller">
-      <TitleComponent title={"Notification"}/>
+      <TitleComponent title={"Notification"} />
       <div>
         {data.length ? (
           data.map((e, index) => (
@@ -21,11 +36,11 @@ export const NotificationComponent = () => {
         ) : (
           <h5 className="not_fnd_ntf">Not found notifications</h5>
         )}
-        {/* {loading && (
+        {loading && (
           <div className="ctr_loading">
-            <LoadingComponent />
+            {/* <LoadingComponent /> */}  
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );

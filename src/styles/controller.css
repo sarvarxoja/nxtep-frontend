@@ -39,6 +39,18 @@ li {
   opacity: 0.1;
 }
 
+.copy_btn {
+  background: #000000;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 900;
+  padding-bottom: 2px;
+  position: relative;
+  top: -35px;
+  left: 260px;
+}
+
 .block {
   display: block;
 }
@@ -165,6 +177,13 @@ li {
   transition: 0.2s;
 }
 
+.title_container {
+  top: 0px;
+  z-index: 20;
+  background: white;
+  position: sticky;
+}
+
 .follow_btn:hover {
   background: #1d9bf0;
   color: white;
@@ -195,6 +214,17 @@ li {
 
 .repository_data {
   display: flex;
+}
+
+.project_layout {
+  display: flex;
+}
+
+.post_content {
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .page-title {

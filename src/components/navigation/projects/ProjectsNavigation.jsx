@@ -1,8 +1,7 @@
-import "./projects.navigation.css"
+import "./projects.navigation.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import logo from "../../../images/free-twitter-logo-icon-2429-thumb.png";
+import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 
 export const ProjectsNavigation = () => {
   const { profile, loading, error } = useSelector((state) => state.profileData);
@@ -10,19 +9,24 @@ export const ProjectsNavigation = () => {
   console.log(profile);
 
   return (
-    <div className="pr_ject_container">
+    <div>
       <nav className="project_navigation">
-        <img src={logo} className="navbar_logo" />
         <ul>
           <li>
-            <input type="text" className="projects_search"/>
+            <input
+              type="text"
+              className="projects_search"
+              placeholder="serch project"
+            />
+            
+            <i className="far fa-search search_icon_project_navigation"></i>
           </li>
         </ul>
         <div className="project_functions">
           <Link>
-            <AddCircleOutlineIcon />
+            <i className="fad fa-layer-plus add_project_icon"></i>
           </Link>
-          <Link>
+          <Link to={`/${profile.username}/projects avatar_project_page`}>
             {profile.avatar ? (
               <div className="avatar-box">
                 <img
@@ -35,7 +39,7 @@ export const ProjectsNavigation = () => {
               </div>
             ) : (
               <div
-                className="user-avatar search_default"
+                className="user-avatar search_default  avatar_project_page"
                 style={{ background: `${profile.background_color}` }}
               >
                 {profile.name?.substr(0, 1)}

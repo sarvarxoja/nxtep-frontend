@@ -24,25 +24,48 @@ const postReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+    case "ADD_NEW_POST":
+      return {
+        ...state,
+        posts: [action.payload, ...state.posts],
+      };
     case "LIKE_POST":
-      console.log(action);
       return {
         ...state,
         posts: state.posts.map((post) =>
           post._id === action.payload.id
             ? {
                 ...post,
-                like: action.payload.msg === "like_added", // If `msg` is 'like_added', set `like` to true, otherwise false
+                is_like: action.payload.msg === "like_added",
                 like_count:
                   action.payload.msg === "like_added"
-                    ? post.like_count + 1 // Increase like_count if `msg` is 'like_added'
+                    ? post.like_count + 1
                     : post.like_count > 0
                     ? post.like_count - 1
-                    : 0, // Decrease like_count if `msg` is not 'like_added'
+                    : 0,
               }
             : post
         ),
       };
+    case "REPLY_POST":
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post._id === action.payload.id
+            ? {
+                ...post,
+                is_reply: action.payload.msg === "reply_added",
+                replies_count:
+                  action.payload.msg === "reply_added"
+                    ? post.replies_count + 1
+                    : post.replies_count > 0
+                    ? post.replies_count - 1
+                    : 0,
+              }
+            : post
+        ),
+      };
+
     default:
       return state;
   }

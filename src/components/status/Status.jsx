@@ -19,7 +19,7 @@ export const StatusComponent = () => {
     setLoading(true);
     try {
       const { data } = await axios.get(`post/${post_id}`);
-      setPostData(data?.data || {});
+      setPostData(data?.data);
     } catch (error) {
       console.error("Error fetching posts:", error);
       setPostData({});
@@ -101,14 +101,14 @@ export const StatusComponent = () => {
           )}
           <span>{formatDate(postData.created)}</span>
           <InterestsComponent
-            like_count={postData.like_count}
-            fke_view_count={postData.fke_view_count}
-            comments_count={postData.comments_count}
+            like_count={postData.like_count || 0}
+            fke_view_count={postData.fke_view_count || 0}
+            comments_count={postData.comments_count || 0}
+            like={postData.liked}
             id={postData._id}
           />
         </div>
       </div>
-      <CommentInput post_id={post_id} />
       <Comments post_id={post_id} />
     </div>
   );

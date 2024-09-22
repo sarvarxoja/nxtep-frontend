@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom";
+import { NavigationComponent } from "../components/navigation/Navigation";
 
-const CreateProjectLayout = () => {
+const ProjectsLayout = () => {
   return (
-    <div>
+    <div className="project_layout container">
+      <NavigationComponent />
       <Outlet />
     </div>
   );
 };
 
-export default CreateProjectLayout;
+export default ProjectsLayout;

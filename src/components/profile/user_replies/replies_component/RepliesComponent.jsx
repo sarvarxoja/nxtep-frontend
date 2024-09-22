@@ -76,7 +76,7 @@ export const RepliesComponent = ({
             <img
               src={`http://localhost:1311/${media}`}
               alt=""
-              className="post-img"
+              className="post-img reply_img"
             />
           ) : (
             ""

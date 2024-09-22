@@ -37,10 +37,13 @@ export const UserProfile = () => {
     setActiveTab(tabName);
   };
 
+
   return (
     <div className="body_controller">
       <div>
+        <div className="title_container">
         <MainTitle title={data.userData?.name} />
+        </div>
         {data.userData?.profile_banner ? (
           <img
             src={`http://localhost:1311/${data.userData?.profile_banner}`}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes, useParams } from "react-router-dom";
 import axios from "axios";
-import { ProjectsController } from "../../projects/project_component/ProjectsController";
+import { ProjectsController } from "../../project_components/project_component/ProjectsController";
 
 export const UserProjects = () => {
   const { username } = useParams();

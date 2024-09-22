@@ -8,7 +8,7 @@
 }
 
 .notification_controller:hover {
-  background: #f1eeee;
+  background: #ffffff;
 }
 
 .content_notification {
@@ -26,6 +26,7 @@
   font-size: 16px;
   color: #494747;
   font-weight: 500;
+  font-family: "Lexend", sans-serif;
 }
 
 .not_fnd_ntf {
@@ -34,4 +35,19 @@
   font-family: sans-serif;
   margin-top: 140px;
   color: #313030;
+}
+
+.post_link_1 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.post_link_01 {
+  color: blue;
+  font-size: 15px;
+  font-family: "Lexend", sans-serif;
+}
+
+.post_link_01:hover {
+  text-decoration: underline;
 }

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const fetchPostsRequest = () => ({
   type: "FETCH_POSTS_REQUEST",
 });
@@ -15,7 +16,7 @@ export const fetchPostsFailure = (error) => ({
 
 export const fetchPosts = () => {
   return async (dispatch) => {
-    dispatch(fetchPostsRequest);
+    dispatch(fetchPostsRequest());
     try {
       const response = await axios.get("/post/top/rtc?limit=5&&page=1");
       dispatch(fetchPostsSuccess(response.data));

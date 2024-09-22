@@ -1,0 +1,22 @@
+.shere_box {
+    background: rgb(248, 248, 248);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 220px;
+    padding: 10px 0px 5px 10px;
+    position: absolute;
+    right: 230px;
+    color: black;
+    font-weight: 900;
+    border: 2px solid #7f7c7c;
+    z-index: 10;
+}
+
+.share_list {
+    padding-bottom: 10px;
+    cursor: pointer !important;
+}
+
+.share_notification_icon {
+    margin-right: 10px;
+}

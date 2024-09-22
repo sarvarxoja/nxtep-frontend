@@ -17,6 +17,16 @@
   background: #bdbaba;
 }
 
+.smile_icon {
+  margin-left: 10px;
+}
+
+.emoji-picker {
+  position: absolute;
+  z-index: 10;
+  top: 190px;
+}
+
 .pin_icon {
   display: block;
 }
@@ -34,13 +44,13 @@
 }
 
 .exit_x_icon {
-  font-size: 22px;
+  font-size: 20px;
   position: absolute;
   right: 480px;
   margin-top: 5px;
   color: white;
   background: #3a3d40;
-  padding: 4px 8px;
+  padding: 2px 6px;
   border-radius: 30px;
   font-weight: 200;
 }
@@ -62,6 +72,10 @@
 
 .file-input {
   display: none;
+}
+
+.post_img_a2 {
+  margin-bottom: 10px;
 }
 
 .file-icon {
@@ -288,8 +302,10 @@
   transition: 0.3s;
   display: flex;
   user-select: none;
-  gap: 56px;
-  margin-top: 10px;
+}
+
+.popular_intrsts {
+  width: 110px;
 }
 
 .pb-2 {

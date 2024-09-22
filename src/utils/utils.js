@@ -51,3 +51,15 @@ export function truncateText(text, maxLength) {
   }
   return text.slice(0, maxLength) + "...";
 }
+
+export const formatCount = (likeCount) => {
+  if (likeCount >= 1000000000) {
+    return (likeCount / 1000000000).toFixed(1) + 'B'; // Billion
+  } else if (likeCount >= 1000000) {
+    return (likeCount / 1000000).toFixed(1) + 'M'; // Million
+  } else if (likeCount >= 1000) {
+    return (likeCount / 1000).toFixed(1) + 'K'; // Thousand
+  } else {
+    return likeCount.toString();
+  }
+};

@@ -1,33 +1,36 @@
-/* Define the keyframes for the like animation */
-
 .intrst_count {
   position: relative;
-  top: 1px;
+  /* top: 1px; */
 }
 
 @keyframes likeAnimation {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1.2);
-      opacity: 0.7;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
+  0% {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  /* Base styling for the like icon */
-  .like-icon {
-    transition: color 0.3s ease, transform 0.3s ease;
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
   }
-  
-  /* When the like is active, apply the liked class */
-  .like-icon.liked {
-    color: red; /* Change color when liked */
-    animation: likeAnimation 0.5s ease; /* Apply the animation */
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
-  
+}
+
+.like-icon {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.like-icon.liked {
+  color: red;
+  animation: likeAnimation 0.5s ease;
+}
+
+.liked {
+  color: #f4245e !important;
+}
+
+.replied {
+  color: #1da1f2;
+}

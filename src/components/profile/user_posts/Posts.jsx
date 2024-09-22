@@ -39,7 +39,6 @@ export const UserPosts = ({ reloadFetch, setReloadFetch, myProfile }) => {
     setLoading(false);
   };
 
-  console.log(data);
 
   return (
     <div className="data_a2">
@@ -60,7 +59,7 @@ export const UserPosts = ({ reloadFetch, setReloadFetch, myProfile }) => {
               fke_view_count={e.fke_view_count}
               comments_count={e.comments_count}
               id={e._id}
-              like={e.like}
+              like={e.is_like}
             />
           </div>
         );

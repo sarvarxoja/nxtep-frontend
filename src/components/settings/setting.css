@@ -2,12 +2,13 @@
   display: block;
   padding: 15px;
   font-size: 20px;
-  color: #333;
+  color: #7f7d7d;
   display: flex;
   align-items: center;
-  font-family: "Lexend", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   justify-content: space-between;
   transition: 0.2s;
+  font-weight: 700;
 }
 
 .settings-link:hover {

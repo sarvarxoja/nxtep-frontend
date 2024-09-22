@@ -1,0 +1,26 @@
+[
+  {
+    "name": "All",
+    "type": "all"
+  },
+  {
+   "name": "Smm project",
+   "type": "smm_project"
+  },
+  {
+    "name": "Web site",
+    "type:": "web_site"
+  },
+  {
+    "name": "Telegram bot",
+    "type": "telegram_bot"
+  },
+  {
+    "name": "Mobile app",
+    "type": "mobile_app"
+  },
+  {
+    "name": "Graphic design",
+    "type": "graphic_design"
+  }
+]

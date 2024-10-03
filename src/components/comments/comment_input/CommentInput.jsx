@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import ReactTextareaAutosize from "react-textarea-autosize";
 
-export const CommentInput = ({ post_id, addNewComment }) => {
+export const CommentInput = ({ post_id, addNewComment, user_id }) => {
   const [commentValue, setCommentValue] = useState({
     comment: "",
   });
@@ -27,6 +27,20 @@ export const CommentInput = ({ post_id, addNewComment }) => {
       });
       commentValue.comment = "";
       addNewComment(data.commentData);
+
+      let response = await axios.post(
+        `/notification/add`,
+        {
+          to_user: user_id,
+          content: "sizning postingizga fikr bildirdi",
+          link: `http://localhost:5173/status/${post_id}`,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     } catch (error) {
       console.log(error.message);
     }

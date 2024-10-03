@@ -2,10 +2,10 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getTimeAgo } from "../../../utils/utils";
-import { CommentInterests } from "../../interests/CommentInterests";
 import { CommentInput } from "../comment_input/CommentInput";
+import { CommentInterests } from "../../interests/CommentInterests";
 
-export const Comments = ({ post_id }) => {
+export const Comments = ({ post_id, setCommentsCount, user_id }) => {
   const [commentsData, setCommentsData] = useState([]);
   const [commentsLoading, setCommentsLoading] = useState(false);
 
@@ -28,11 +28,16 @@ export const Comments = ({ post_id }) => {
 
   const addNewComment = (newComment) => {
     setCommentsData([newComment, ...commentsData]);
+    setCommentsCount();
   };
 
   return (
     <div>
-      <CommentInput post_id={post_id} addNewComment={addNewComment} />
+      <CommentInput
+        post_id={post_id}
+        addNewComment={addNewComment}
+        user_id={user_id}
+      />
       {commentsData.map((e) => {
         return (
           <div className="comment_controller" key={e._id}>

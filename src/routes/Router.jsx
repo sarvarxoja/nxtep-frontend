@@ -10,7 +10,7 @@ import { Register } from "../components/auth/register/Register";
 
 import { Trends } from "../components/trends/Trends";
 import { People } from "../components/people/People";
-import { PostsComponent } from "../components/posts/Posts";
+import { HomePageLayout } from "../layout/HomeLayout";
 import { StatusComponent } from "../components/status/Status";
 import { ExploreComponent } from "../components/explore/Explore";
 import { SettingsComponent } from "../components/settings/Settings";
@@ -18,7 +18,9 @@ import { ProjectsPage } from "../components/projects/page/Projects";
 import { UserProfile } from "../components/profile/user_profile/UserProfile";
 import { FollowersComponent } from "../components/follow/followers/Followers";
 import { FollowingComponent } from "../components/follow/following/Following";
+import { YourPosts } from "../components/posts/post_controller/PostController";
 import { NotificationComponent } from "../components/notification/Notification";
+import { FollowingPosts } from "../components/posts/post_following/FollowingPosts";
 
 export const Router = () => {
   return (
@@ -34,8 +36,11 @@ export const Router = () => {
         <Route path="/trends" element={<Trends />} />
         <Route path="/people" element={<People />} />
       </Route>
+      <Route element={<HomePageLayout />}>
+        <Route path="/home" element={<YourPosts />} />
+        <Route path="/following" element={<FollowingPosts />} />
+      </Route>
       <Route element={<MainLayout />}>
-        <Route path="/home" element={<PostsComponent />} />
         <Route path="/explore" element={<ExploreComponent />} />
         <Route path="/notification" element={<NotificationComponent />} />
         <Route path="/status/:post_id" element={<StatusComponent />} />

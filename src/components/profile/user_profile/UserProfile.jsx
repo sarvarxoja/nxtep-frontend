@@ -9,12 +9,14 @@ import { UserProjects } from "../user_projects/Projects";
 import { Highlights } from "../user_highlights/Highlights";
 import { Link, Route, Routes, useParams } from "react-router-dom";
 import { getMonthAndYear, truncateText } from "../../../utils/utils";
+// import AvatarCropper from "../edit_page/avatar_cropper/AvatarCropper";
 
 export const UserProfile = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [reloadFetch, setReloadFetch] = useState(false);
+  const [editPage, setEditPage] = useState(false);
   const [activeTab, setActiveTab] = useState("posts"); // default active tab
+  const [reloadFetch, setReloadFetch] = useState(false);
 
   let { username } = useParams();
 
@@ -37,12 +39,13 @@ export const UserProfile = () => {
     setActiveTab(tabName);
   };
 
+  console.log(data);
 
   return (
     <div className="body_controller">
       <div>
         <div className="title_container">
-        <MainTitle title={data.userData?.name} />
+          <MainTitle title={data.userData?.name} />
         </div>
         {data.userData?.profile_banner ? (
           <img
@@ -56,7 +59,7 @@ export const UserProfile = () => {
         <div className="flex inter_follow_ava ">
           {data.userData?.avatar ? (
             <img
-              src={`http://localhost:1311/${data.userData?.avatar}`}
+              src={`http://localhost:2310/${data.userData?.avatar}`}
               alt=""
               className="profile-default select"
             />
@@ -65,9 +68,7 @@ export const UserProfile = () => {
               className="user-avatar profile-default top22-a"
               style={{ background: `${data.userData?.background_color}` }}
             >
-              <div>
-              {data.userData?.name?.substring(0, 1)}
-              </div>
+              <div>{data.userData?.name?.substring(0, 1)}</div>
             </div>
           )}
           <div>
@@ -82,6 +83,7 @@ export const UserProfile = () => {
             <button
               className={`follow_btn edit_btn`}
               style={{ display: data.is_your ? "" : "none" }}
+              onClick={() => setEditPage(!editPage)}
             >
               Edit
             </button>

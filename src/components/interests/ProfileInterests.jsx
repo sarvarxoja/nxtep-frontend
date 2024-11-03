@@ -12,8 +12,10 @@ import { likePost } from "../posts/post_actions/PostLikeAction";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import { InterestsNotification } from "./notification/InterestsNotification";
 import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
+import fetchProfileRepost from "../profile/profile_actions/ProfileRepostActions";
+import { likeProfilePost } from "../profile/profile_actions/ProfilePostLikeAction";
 
-export const InterestsComponent = ({
+export const ProfileInterestsComponent = ({
   like_count,
   fke_view_count,
   comments_count,
@@ -32,11 +34,11 @@ export const InterestsComponent = ({
   const { repost, loading, error } = useSelector((state) => state.repostData);
 
   const handleRepost = (id) => {
-    dispatch(fetchRepost(id, content));
+    dispatch(fetchProfileRepost(id, content));
   };
 
   const handleLike = (post_id) => {
-    dispatch(likePost(post_id));
+    dispatch(likeProfilePost(post_id));
   };
 
   const handleShareClick = () => {

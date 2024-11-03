@@ -1,9 +1,9 @@
 import _ from "lodash";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { getTimeAgo } from "../../../utils/utils";
 import { VideoComponent } from "../../video/Video";
-import { InterestsComponent } from "../../interests/Interests";
-import { useState, useEffect } from "react";
+import { ProfileInterestsComponent } from "../../interests/ProfileInterests";
 
 export const PostData = ({
   pinned,
@@ -37,7 +37,7 @@ export const PostData = ({
       <Link to={`/${username}`}>
         {avatar ? (
           <img
-            src={`http://localhost:1311/${avatar}`}
+            src={`http://localhost:2310/${avatar}`}
             alt=""
             className="user_avatar"
           />
@@ -95,7 +95,7 @@ export const PostData = ({
         ) : (
           ""
         )}
-        <InterestsComponent
+        <ProfileInterestsComponent
           like_count={like_count}
           fke_view_count={fke_view_count}
           comments_count={comments_count}

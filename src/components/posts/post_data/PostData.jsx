@@ -63,7 +63,7 @@ export const PostData = ({
               </span>
               {check_mark ? (
                 <img
-                  src={`http://localhost:1311/${check_mark}`}
+                  src={`http://localhost:2310/${check_mark}`}
                   alt=""
                   className="main_check_m"
                 />
@@ -88,7 +88,7 @@ export const PostData = ({
           extension === "jpeg" ||
           extension === "png" ? (
           <img
-            src={`http://localhost:1311/${media}`}
+            src={`http://localhost:2310/${media}`}
             alt=""
             className="post-img"
           />

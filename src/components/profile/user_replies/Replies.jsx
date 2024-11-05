@@ -5,38 +5,40 @@ import { PostData } from "../../posts/post_data/PostData";
 import { Link } from "react-router-dom";
 import { RepliesComponent } from "./replies_component/RepliesComponent";
 import { InterestsComponent } from "../../interests/Interests";
+import { Loader } from "../../loader/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import fetchRepost from "../../interests/repost_action/RepostAction";
+import { fetchUserReplies } from "../profile_actions/ProfileRepliesActions";
 
 export const UserReplies = ({ user_id }) => {
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+  const { reposts, loading, error } = useSelector(
+    (state) => state.profileRepostsReducer
+  );
+
 
   useEffect(() => {
     if (user_id) {
-      fetchReplies();
+      dispatch(fetchUserReplies(user_id));
+      
     }
   }, [user_id]);
 
-  async function fetchReplies() {
-    try {
-      let { data } = await axios.get(`/post/reply/${user_id}`);
-      setData(data.repliesData);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  console.log(data);
+  console.log(reposts);
   
 
   return (
     <div>
-      {data.length ? (
-        data.map((e) => (
+      {loading ? (
+        <Loader /> // Loader while fetching data
+      ) : reposts.repliesData?.length > 0 ? (
+        reposts.repliesData?.map((e) => (
           <div key={e._id} className="border_bottom">
             <div className="replies_my_data">
               <Link to={`/${e.user_id.username}`}>
                 {e.user_id.avatar ? (
                   <img
-                    src={`http://localhost:1311/${e.user_id.avatar}`}
+                    src={`http://localhost:2310/${e.user_id.avatar}`}
                     alt=""
                     className="user_avatar"
                   />
@@ -62,7 +64,7 @@ export const UserReplies = ({ user_id }) => {
                       </span>
                       {e.user_id.check_mark ? (
                         <img
-                          src={`http://localhost:1311/${e.user_id.check_mark}`}
+                          src={`http://localhost:2310/${e.user_id.check_mark}`}
                           alt=""
                           className="main_check_m"
                         />
@@ -74,20 +76,20 @@ export const UserReplies = ({ user_id }) => {
                 </div>
               </div>
             </div>
-            <dir className="replies_data">
+            <div className="replies_data">
               <RepliesComponent
                 id={e.post_id?._id}
                 media={e.post_id?.media}
                 username={e.post_id?.user_id.username}
                 avatar={e.post_id?.user_id.avatar}
-                background_color={e.post_id?.user_id.background_color}
-                name={e.post_id?.user_id.name || "S"}
+                background_color={e.post_id?.user_id.background_color || "#333"}
+                name={e.post_id?.user_id.name || "Deleted"}
                 check_mark={e.post_id?.user_id.check_mark}
                 created={e.created}
-                content={e.post_id?.content}
+                content={e.post_id?.content || "Deleted content"}
                 like_count={e.like_count}
               />
-            </dir>
+            </div>
             <div className="interests_style_controller">
               <InterestsComponent
                 like_count={e.like_count}
@@ -95,11 +97,11 @@ export const UserReplies = ({ user_id }) => {
                 comments_count={e.comments_count}
                 id={e._id}
               />
-              </div>
+            </div>
           </div>
         ))
       ) : (
-        <p>No replies found.</p>
+        <p className="notfound_title_av">No replies found</p>
       )}
     </div>
   );

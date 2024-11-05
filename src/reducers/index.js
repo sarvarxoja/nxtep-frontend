@@ -6,6 +6,7 @@ import trendsReducer from "./TrendsReducer";
 import profileReudcer from "./ProfileReducer";
 import WhoToFollowReducer from "./WhoToFollowReducer";
 import profilePostReducer from "./ProfilePostsReducer";
+import profileRepostsReducer from "./ProfileRepostsReduces";
 
 const rootReducers = combineReducers({
   postsData: postReducer,
@@ -15,6 +16,7 @@ const rootReducers = combineReducers({
   profileData: profileReudcer,
   who_to_followData: WhoToFollowReducer,
   profilePostReducer: profilePostReducer,
+  profileRepostsReducer: profileRepostsReducer,
 });
 
 export default rootReducers;

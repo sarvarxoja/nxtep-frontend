@@ -3,6 +3,17 @@
   padding: 20px;
 }
 
+.notfound_title_av {
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 120px;
+  text-align: center;
+  font-family: "Lexend", sans-serif;
+  color: #595858;
+  font-weight: 500;
+
+}
+
 .replies_data {
   border: 0.001px solid #918b8b;
   overflow: hidden;

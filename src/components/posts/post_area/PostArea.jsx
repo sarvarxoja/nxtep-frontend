@@ -133,7 +133,7 @@ export const PostArea = () => {
     <div className="data-box top hover-none">
       {profile.avatar ? (
         <img
-          src={`http://localhost:1311/${profile.avatar}`}
+          src={`http://localhost:2310/${profile.avatar}`}
           alt=""
           className="user_avatar"
         />

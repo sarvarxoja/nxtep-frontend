@@ -20,7 +20,7 @@ export const fetchPosts = (username, content) => {
     try {
       const response = await axios.get(
         `users/get/user/${username}/content/${content}?limit=12&page=1`
-      );
+      );      
       dispatch(fetchPostsSuccess(response.data));
     } catch (error) {
       dispatch(fetchPostsFailure(error.message));

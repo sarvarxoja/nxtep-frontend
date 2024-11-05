@@ -177,6 +177,10 @@ li {
   transition: 0.2s;
 }
 
+/* .unfollow_btn {
+  background-color: ;
+} */
+
 .title_container {
   top: 0px;
   z-index: 20;

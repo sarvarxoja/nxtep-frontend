@@ -9,11 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 export const UserPosts = ({ reloadFetch, setReloadFetch, myProfile }) => {
   const dispatch = useDispatch();
   let { username } = useParams();
-  const [page, setPage] = useState(1);
-  const [data, setData] = useState([]);
-  const [bold, setBold] = useState(null);
-  const [active, setActive] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
   // const [loading, setLoading] = useState(false);
 
   const { posts, loading, error } = useSelector(
@@ -34,8 +29,6 @@ export const UserPosts = ({ reloadFetch, setReloadFetch, myProfile }) => {
     dispatch(fetchPosts(username, "posts"));
   }, [username]);
 
-  console.log(posts.postsData);
-
   // const fetchPostsContent = async (page) => {
   //   setLoading(true);
   //   try {
@@ -49,7 +42,9 @@ export const UserPosts = ({ reloadFetch, setReloadFetch, myProfile }) => {
   //   setLoading(false);
   // };
 
-  console.log(data);
+
+  console.log(posts);
+  
 
   return (
     <div className="data_a2">

@@ -30,7 +30,7 @@ export const People = () => {
                 {i.avatar ? (
                   <div className="avatar-box">
                     <img
-                      src={`http://localhost:1311/${i.avatar}`}
+                      src={`http://localhost:2310/${i.avatar}`}
                       alt=""
                       width={30}
                       height={30}
@@ -49,7 +49,7 @@ export const People = () => {
                   <div className="check-text cepi_22">
                     <h3 className="font-name">{i.name}</h3>
                     <img
-                      src={`http://localhost:1311/${i.check_mark}`}
+                      src={`http://localhost:2310/${i.check_mark}`}
                       alt=""
                       className="checkmark_img"
                       width={30}

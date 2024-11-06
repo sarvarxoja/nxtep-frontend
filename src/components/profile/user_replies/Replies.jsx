@@ -9,28 +9,25 @@ import { Loader } from "../../loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import fetchRepost from "../../interests/repost_action/RepostAction";
 import { fetchUserReplies } from "../profile_actions/ProfileRepliesActions";
+import { ProfileRepostInterestsComponent } from "../../interests/ProfileRepostInterests";
 
-export const UserReplies = ({ user_id }) => {
+export const UserReplies = ({ user_id, setActiveTab}) => {
+  setActiveTab("replies")
   const dispatch = useDispatch();
   const { reposts, loading, error } = useSelector(
     (state) => state.profileRepostsReducer
   );
 
-
   useEffect(() => {
     if (user_id) {
       dispatch(fetchUserReplies(user_id));
-      
     }
   }, [user_id]);
-
-  console.log(reposts);
-  
 
   return (
     <div>
       {loading ? (
-        <Loader /> // Loader while fetching data
+        <Loader />
       ) : reposts.repliesData?.length > 0 ? (
         reposts.repliesData?.map((e) => (
           <div key={e._id} className="border_bottom">
@@ -91,7 +88,8 @@ export const UserReplies = ({ user_id }) => {
               />
             </div>
             <div className="interests_style_controller">
-              <InterestsComponent
+              <ProfileRepostInterestsComponent
+                like={e.is_like}
                 like_count={e.like_count}
                 fke_view_count={e.fke_view_count}
                 comments_count={e.comments_count}

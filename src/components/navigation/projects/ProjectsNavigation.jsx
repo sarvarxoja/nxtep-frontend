@@ -30,7 +30,7 @@ export const ProjectsNavigation = () => {
             {profile.avatar ? (
               <div className="avatar-box">
                 <img
-                  src={`http://localhost:1311/${profile.avatar}`}
+                  src={`http://localhost:2310/${profile.avatar}`}
                   alt=""
                   width={30}
                   height={30}

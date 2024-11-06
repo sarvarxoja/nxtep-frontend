@@ -6,7 +6,13 @@ import { PostData } from "../../posts/post_data/PostData";
 import { fetchPosts } from "../profile_actions/ProfilePostActions";
 import { useDispatch, useSelector } from "react-redux";
 
-export const UserPosts = ({ reloadFetch, setReloadFetch, myProfile }) => {
+export const UserPosts = ({
+  reloadFetch,
+  setReloadFetch,
+  myProfile,
+  setActiveTab,
+}) => {
+  setActiveTab('posts')
   const dispatch = useDispatch();
   let { username } = useParams();
   // const [loading, setLoading] = useState(false);
@@ -42,9 +48,7 @@ export const UserPosts = ({ reloadFetch, setReloadFetch, myProfile }) => {
   //   setLoading(false);
   // };
 
-
   console.log(posts);
-  
 
   return (
     <div className="data_a2">

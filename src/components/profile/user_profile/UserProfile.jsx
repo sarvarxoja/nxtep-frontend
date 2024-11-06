@@ -14,13 +14,12 @@ import { getMonthAndYear, truncateText } from "../../../utils/utils";
 // import AvatarCropper from "../edit_page/avatar_cropper/AvatarCropper";
 
 export const UserProfile = () => {
+  let { username } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editPage, setEditPage] = useState(false);
-  const [activeTab, setActiveTab] = useState("posts"); // default active tab
+  const [activeTab, setActiveTab] = useState(""); // default active tab
   const [reloadFetch, setReloadFetch] = useState(false);
-
-  let { username } = useParams();
 
   useEffect(() => {
     setData([]);
@@ -38,10 +37,6 @@ export const UserProfile = () => {
       console.error("Error fetching posts:", error);
       setLoading(false);
     }
-  };
-
-  const handleTabClick = (tabName) => {
-    setActiveTab(tabName);
   };
 
   async function handleFollow(id) {
@@ -214,7 +209,7 @@ export const UserProfile = () => {
               <h2 className="font title_follow">
                 <span className="follow_count">
                   {loading ? (
-                    <Skeleton width={15} height={20}/>
+                    <Skeleton width={15} height={20} />
                   ) : (
                     data.userData?.following_count
                   )}
@@ -241,7 +236,6 @@ export const UserProfile = () => {
             <ul className="ul-ad">
               <li
                 className={`list-23 ${activeTab === "posts" ? "active" : ""}`}
-                onClick={() => handleTabClick("posts")}
               >
                 <Link className="link-ad23 font" to={`/${username}`}>
                   Posts
@@ -249,7 +243,6 @@ export const UserProfile = () => {
               </li>
               <li
                 className={`list-23 ${activeTab === "replies" ? "active" : ""}`}
-                onClick={() => handleTabClick("replies")}
               >
                 <Link className="link-ad23 font" to={`replies`}>
                   Replies
@@ -259,7 +252,6 @@ export const UserProfile = () => {
                 className={`list-23 ${
                   activeTab === "highlights" ? "active" : ""
                 }`}
-                onClick={() => handleTabClick("highlights")}
               >
                 <Link className="link-ad23 font" to={`highlights`}>
                   Highlights
@@ -269,7 +261,6 @@ export const UserProfile = () => {
                 className={`list-23 ${
                   activeTab === "projects" ? "active" : ""
                 }`}
-                onClick={() => handleTabClick("projects")}
               >
                 <Link className="link-ad23 font" to={`projects`}>
                   Projects
@@ -288,13 +279,24 @@ export const UserProfile = () => {
         </div>
       </div>
       <Routes>
-        <Route path={`/`} element={<UserPosts />} />
+        <Route path={`/`} element={<UserPosts setActiveTab={setActiveTab} />} />
         <Route
           path={`/replies`}
-          element={<UserReplies user_id={data?.userData?._id} />}
+          element={
+            <UserReplies
+              user_id={data?.userData?._id}
+              setActiveTab={setActiveTab}
+            />
+          }
         />
-        <Route path={`/highlights`} element={<Highlights />} />
-        <Route path={`/projects`} element={<UserProjects />} />
+        <Route
+          path={`/highlights`}
+          element={<Highlights setActiveTab={setActiveTab} />}
+        />
+        <Route
+          path={`/projects`}
+          element={<UserProjects setActiveTab={setActiveTab} />}
+        />
         {/* <Route path={`/news`} element={<UserNews />} /> */}
       </Routes>
     </div>

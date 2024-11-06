@@ -31,7 +31,7 @@ export const AllProjects = () => {
         return (
           <Link to={`/project/${e._id}`} key={e._id}>
             <img
-              src={`http://localhost:1311/${e.project_logo}`}
+              src={`http://localhost:2310/${e.project_logo}`}
               alt=""
               className="project_logo"
             />
@@ -40,7 +40,7 @@ export const AllProjects = () => {
                 {e.user_id.avatar ? (
                   <div className="avatar-box">
                     <img
-                      src={`http://localhost:1311/${e.user_id.avatar}`}
+                      src={`http://localhost:2310/${e.user_id.avatar}`}
                       alt=""
                       width={30}
                       height={30}

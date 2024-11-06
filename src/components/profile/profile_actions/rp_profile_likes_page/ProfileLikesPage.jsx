@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const likeProfilePost = (postId) => async (dispatch) => {
-  try {    
+export const likeProfilePostRp = (postId) => async (dispatch) => {
+  try {
     const response = await axios.post(`/post/like/${postId}`);
 
     await axios.post(
@@ -19,7 +19,7 @@ export const likeProfilePost = (postId) => async (dispatch) => {
     );
 
     dispatch({
-      type: "LIKE_PROFILE_POST",  
+      type: "LIKE_PROFILE_RP",
       payload: response.data,
     });
   } catch (error) {

@@ -3,6 +3,10 @@
   /* top: 1px; */
 }
 
+.rp_send_icon {
+  margin-left: 100%;
+}
+
 @keyframes likeAnimation {
   0% {
     transform: scale(1);

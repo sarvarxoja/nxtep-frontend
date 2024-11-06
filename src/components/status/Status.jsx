@@ -130,7 +130,7 @@ export const StatusComponent = () => {
         <Link to={`/${postData.user_id}`}>
           {postData.user_id?.avatar ? (
             <img
-              src={`http://localhost:1311/${postData.user_id.avatar}`}
+              src={`http://localhost:2310/${postData.user_id.avatar}`}
               alt=""
               className="user_avatar"
             />
@@ -156,7 +156,7 @@ export const StatusComponent = () => {
                 </span>
                 {postData.user_id?.check_mark ? (
                   <img
-                    src={`http://localhost:1311/${postData.user_id?.check_mark}`}
+                    src={`http://localhost:2310/${postData.user_id?.check_mark}`}
                     alt=""
                     className="main_check_m"
                   />
@@ -173,7 +173,7 @@ export const StatusComponent = () => {
             extension === "jpeg" ||
             extension === "png" ? (
             <img
-              src={`http://localhost:1311/${postData.media}`}
+              src={`http://localhost:2310/${postData.media}`}
               alt=""
               className="post-img"
             />

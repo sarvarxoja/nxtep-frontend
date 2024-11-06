@@ -3,7 +3,8 @@ import { Link, Route, Routes, useParams } from "react-router-dom";
 import axios from "axios";
 import { ProjectsController } from "../../project_components/project_component/ProjectsController";
 
-export const UserProjects = () => {
+export const UserProjects = ({setActiveTab}) => {
+  setActiveTab("projects")
   const { username } = useParams();
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);

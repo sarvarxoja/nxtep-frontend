@@ -44,7 +44,7 @@ export const Comments = ({ post_id, setCommentsCount, user_id }) => {
             <Link to={`/${e?.user_id?.username}`}>
               {e?.user_id?.avatar ? (
                 <img
-                  src={`http://localhost:1311/${e?.user_id?.avatar}`}
+                  src={`http://localhost:2310/${e?.user_id?.avatar}`}
                   alt=""
                   width={50}
                   height={50}

@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PostData } from "../../posts/post_data/PostData";
 
-export const Highlights = () => {
+export const Highlights = ({ setActiveTab }) => {
+  setActiveTab("highlights");
   const { username } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);

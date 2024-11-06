@@ -5,7 +5,7 @@ export const VideoComponent = ({ media }) => {
     <div className="video-container">
       <video controls>
         <source
-          src={`http://localhost:1311/${media}`}
+          src={`http://localhost:2310/${media}`}
           type="video/mp4"
           className="post-video"
         />

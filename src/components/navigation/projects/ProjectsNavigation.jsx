@@ -1,7 +1,7 @@
 import "./projects.navigation.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
+import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 
 export const ProjectsNavigation = () => {
   const { profile, loading, error } = useSelector((state) => state.profileData);
@@ -18,12 +18,12 @@ export const ProjectsNavigation = () => {
               className="projects_search"
               placeholder="serch project"
             />
-            
+
             <i className="far fa-search search_icon_project_navigation"></i>
           </li>
         </ul>
         <div className="project_functions">
-          <Link>
+          <Link to={"/project/create"}>
             <i className="fad fa-layer-plus add_project_icon"></i>
           </Link>
           <Link to={`/${profile.username}/projects avatar_project_page`}>

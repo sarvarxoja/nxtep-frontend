@@ -15,6 +15,7 @@ import { StatusComponent } from "../components/status/Status";
 import { ExploreComponent } from "../components/explore/Explore";
 import { SettingsComponent } from "../components/settings/Settings";
 import { ProjectsPage } from "../components/projects/page/Projects";
+import { ProjectCreate } from "../components/project_create/ProjectCreate";
 import { UserProfile } from "../components/profile/user_profile/UserProfile";
 import { FollowersComponent } from "../components/follow/followers/Followers";
 import { FollowingComponent } from "../components/follow/following/Following";
@@ -27,6 +28,7 @@ export const Router = () => {
     <Routes>
       <Route element={<ProjectsLayout />}>
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/project/create" element={<ProjectCreate />} />
       </Route>
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<Login />} />

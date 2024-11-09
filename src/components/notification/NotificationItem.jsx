@@ -38,7 +38,7 @@ export const NotificationItem = ({ notification }) => {
       <Link to={`/${notification.user_id.username}`}>
         {notification.user_id.avatar ? (
           <img
-            src={`http://localhost:1311/${notification.user_id.avatar}`}
+            src={`http://localhost:2310/${notification.user_id.avatar}`}
             alt=""
             className="user_avatar"
           />
@@ -62,7 +62,7 @@ export const NotificationItem = ({ notification }) => {
             <div className="flex ">
               <h3 className="font-name">{notification.user_id.name}</h3>
               <img
-                src={`http://localhost:1311/${notification.user_id.check_mark}`}
+                src={`http://localhost:2310/${notification.user_id.check_mark}`}
                 alt=""
                 className="main_check_m"
               />

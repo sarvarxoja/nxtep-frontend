@@ -83,7 +83,7 @@ export const PostData = ({
         </div>
         <p className="post_content">{content}</p>
         {extension === "mp4" ? (
-          <VideoComponent media={media} />
+        <VideoComponent media={`http://localhost:2310/${media}`}/>
         ) : extension === "jpg" ||
           extension === "jpeg" ||
           extension === "png" ? (

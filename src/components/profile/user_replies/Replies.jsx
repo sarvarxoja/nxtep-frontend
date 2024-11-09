@@ -11,8 +11,10 @@ import fetchRepost from "../../interests/repost_action/RepostAction";
 import { fetchUserReplies } from "../profile_actions/ProfileRepliesActions";
 import { ProfileRepostInterestsComponent } from "../../interests/ProfileRepostInterests";
 
-export const UserReplies = ({ user_id, setActiveTab}) => {
-  setActiveTab("replies")
+export const UserReplies = ({ user_id, setActiveTab }) => {
+  useEffect(() => {
+    setActiveTab("replies");
+  });
   const dispatch = useDispatch();
   const { reposts, loading, error } = useSelector(
     (state) => state.profileRepostsReducer
